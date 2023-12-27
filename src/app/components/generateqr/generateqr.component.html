@@ -1,0 +1,18 @@
+
+<form class="qr-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    
+    <mat-form-field class="qr-full-width">
+      <mat-label>DNI</mat-label>
+      <input matInput required  ngModel name="dni"  value="27196560">
+    </mat-form-field>
+  
+    <mat-form-field class="qr-full-width">
+      <mat-label>Nro protocolo</mat-label>
+      <input matInput required   name="protocolo" ngModel value="01200100025104">
+    </mat-form-field>
+    <div class="example-button-row">
+        <button mat-raised-button  color="accent">Generar QR</button>
+    </div>
+  </form>
+  <img [src]="imageQr" alt="QRimage">
+  

@@ -1,0 +1,18 @@
+<p class="box " *ngIf="showButtons == false">Aguarde por favor, estamos generando su acceso!</p>
+<p class="box " *ngIf="showButtons == true">Su acceso se encuantra listo!</p>
+<div class="box bck" >
+  
+  <mat-spinner *ngIf="showButtons == false"></mat-spinner>
+  <div *ngIf="showButtons == true">
+    <a mat-raised-button  color="accent" [attr.href]="reportUrl">
+      Reporte
+    </a>
+     
+    <a mat-raised-button  color="accent" [attr.href]="imageUrl">
+      Imagen
+    </a>
+
+  </div>
+
+</div>
+
