@@ -4,8 +4,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { GetStudiesRequest } from '../../request/get-studies-request';
 import { studyTokensResponse } from '../../response/token-studies-response';
 import { Router } from '@angular/router';
-
-
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main',
@@ -24,7 +24,12 @@ export class MainComponent {
   imageUrl: string | undefined
   data: string =""
   urlTree: any;
-  constructor(private callService: CallApiServiceService,private router: Router){}
+  constructor(private callService: CallApiServiceService,private router: Router,
+    iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
+      iconRegistry.addSvgIcon(
+        'report',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/report.svg'));
+    }
   patientid : string ="";
 
   studyid : string ="";

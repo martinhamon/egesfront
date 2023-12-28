@@ -3,11 +3,13 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    
   }
   
   .box div {
     width: 100px;
     height: 100px;
+   
   }
 
   a {
@@ -15,7 +17,6 @@
     width: 25px;
     margin-top: 25px;
   }
-  bck {
-    background-image: url("https://signa.com.ar/img/Imagenes/shutterstock_1130966552.jpg");
-    background-color: #cccccc;
-   }
+  
+
+  

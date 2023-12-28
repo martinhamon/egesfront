@@ -3,6 +3,9 @@ import {NgForm} from '@angular/forms';
 import { CallApiServiceService } from '../../services/call-api-service.service';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+
+
+
 @Component({
   selector: 'app-generateqr',
   templateUrl: './generateqr.component.html',
@@ -12,6 +15,7 @@ export class GenerateqrComponent {
   public imageQr : any;   
   private readonly imageType : string = 'data:image/PNG;base64,'; 
   private sanitizer: DomSanitizer | undefined; 
+   showQr : boolean = false;
 
   constructor(private callService: CallApiServiceService,private router: Router){}
   onSubmit(f: NgForm) {
@@ -22,6 +26,7 @@ export class GenerateqrComponent {
            console.log(this.imageType + data.content);
         this.imageQr = this.sanitizer?.bypassSecurityTrustUrl(this.imageType + data.content);  
         this.imageQr =this.imageType + data.content
+        this.showQr = true;
       })
       }
 
