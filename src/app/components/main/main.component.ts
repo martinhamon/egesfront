@@ -36,12 +36,15 @@ export class MainComponent {
 
 
   ngOnInit(){
-    console.log("DNI: : "+this.patientid);
+    this.showButtons=false;
+    console.log("Cargando ngoninit............");
 
     this.urlTree = this.router.parseUrl(this.router.url);
 
    this.data = this.urlTree.queryParams['data'];
-   let array  = (atob(this.data)).split(":")
+ 
+   let array  = window.atob(this.data);
+   
    this.patientid = array[0]
    this.studyid = array[1]
    console.log("Data: "+this.patientid);
@@ -61,7 +64,7 @@ export class MainComponent {
   onCall(event: any) 
   {
     
-    this.callService.getLinks("27196560","01200100025104")
+   /* this.callService.getLinks("27196560","01200100025104")
     .subscribe(data => {
      this.tokens =data;
       //console.log("Respuesta: "+this.tokens?.reporturl);
@@ -69,7 +72,7 @@ export class MainComponent {
       this.imageUrl=this.tokens?.imageUrl
       this.showButtons = true;
       
-    })
+    })*/
 
 
   }

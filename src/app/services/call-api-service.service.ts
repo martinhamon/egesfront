@@ -10,9 +10,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CallApiServiceService {
 
   
-  apiUrl = 'http://localhost:8444/rest/';
-
-
+//apiUrl = 'http://192.168.10.100:8444/rest/';
+apiUrl = 'http://200.80.235.243:8444/rest/';
    study :GetStudiesRequest | undefined ;
   constructor(private http: HttpClient) { }
 
@@ -46,7 +45,7 @@ export class CallApiServiceService {
     const body=JSON.stringify(this.study);
     
    return this.http
-      .post<any>("http://localhost:8444/rest/qr/generate", body,options);
+      .post<any>(this.apiUrl+"qr/generate", body,options);
   
   }
 
@@ -63,7 +62,7 @@ export class CallApiServiceService {
     //const body=JSON.stringify(this.study);
     
    return this.http
-      .get<any>("http://localhost:8444/rest/qr/processqr?data="+data);
+      .get<any>(this.apiUrl+"qr/processqr?data="+data);
   
   }
 
